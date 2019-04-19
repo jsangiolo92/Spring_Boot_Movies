@@ -23,3 +23,6 @@ HELP.md
 ### IntelliJ ###
 .idea
 /out/
+
+### Config ###
+src/main/java/com/cedrus/movies/Movie/model/Config.java
