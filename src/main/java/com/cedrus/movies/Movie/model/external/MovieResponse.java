@@ -5,17 +5,19 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter @Setter
 @AllArgsConstructor
 public class MovieResponse {
     private ResponseStatus responseStatus;
-    private Movie[] movieList;
+    private List<Movie> favoriteMovies;
 
     public MovieResponse() { }
 
-    public MovieResponse(Movie[] movieList, int statusCode) {
+    public MovieResponse(List<Movie> movieList, int statusCode) {
         this.responseStatus = new ResponseStatus(statusCode);
-        this.movieList = movieList;
+        this.favoriteMovies = movieList;
     }
 
     public MovieResponse(boolean isSuccessful, int statusCode, String statusMessage) {
