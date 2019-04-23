@@ -1,4 +1,4 @@
-package com.cedrus.movies.Movie.model;
+package com.cedrus.movies.Movie.model.internal;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

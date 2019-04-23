@@ -1,7 +1,7 @@
 package com.cedrus.movies.Movie.service;
 
-import com.cedrus.movies.Movie.model.Categories;
-import com.cedrus.movies.Movie.model.Config;
+import com.cedrus.movies.Movie.model.internal.Categories;
+import com.cedrus.movies.Movie.model.internal.Config;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 

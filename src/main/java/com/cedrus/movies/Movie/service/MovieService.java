@@ -1,6 +1,6 @@
 package com.cedrus.movies.Movie.service;
 
-import com.cedrus.movies.Movie.model.Movie;
+import com.cedrus.movies.Movie.model.internal.Movie;
 import com.cedrus.movies.Movie.repository.MovieRepo;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
