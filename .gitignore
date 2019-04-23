@@ -25,4 +25,4 @@ HELP.md
 /out/
 
 ### Config ###
-src/main/java/com/cedrus/movies/Movie/model/Config.java
+src/main/java/com/cedrus/movies/Movie/model/internal/Config.java
