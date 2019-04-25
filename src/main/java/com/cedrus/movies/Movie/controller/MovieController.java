@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.Path;
 import java.util.List;
 
 @RestController
@@ -38,10 +39,10 @@ public class MovieController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "favorites", method = RequestMethod.DELETE)
-    public ResponseEntity<MovieResponse> removeFromFavorites(@RequestBody Movie movie) {
+    @RequestMapping(value = "favorites/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<MovieResponse> removeFromFavorites(@PathVariable long id) {
         try {
-            movieService.deleteMovie(movie);
+            movieService.deleteMovie(id);
             return responseService.marshallResponse(true, 202, "Movie removed from favorites", HttpStatus.ACCEPTED);
         }
         catch (Exception error) {
