@@ -6,10 +6,7 @@ import com.cedrus.movies.Movie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,16 +18,18 @@ public class MovieController {
     @Autowired
     ResponseService responseService;
 
+    @CrossOrigin
     @RequestMapping(value = "favorites", method = RequestMethod.GET)
     public ResponseEntity<MovieResponse> getFavorites() {
         List<Movie> movies = movieService.getMovies();
         return responseService.marshallResponse(movies, 200, HttpStatus.OK);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "favorites", method = RequestMethod.POST)
-    public ResponseEntity<MovieResponse> addToFavorites(@RequestBody String fullMovie) {
+    public ResponseEntity<MovieResponse> addToFavorites(@RequestBody Movie newMovie) {
         try {
-            movieService.addMovie(fullMovie);
+            movieService.addMovie(newMovie);
             return responseService.marshallResponse(true, 201, "Movie added to favorites", HttpStatus.CREATED);
         }
         catch(Exception error) {
@@ -38,6 +37,7 @@ public class MovieController {
         }
     }
 
+    @CrossOrigin
     @RequestMapping(value = "favorites", method = RequestMethod.DELETE)
     public ResponseEntity<MovieResponse> removeFromFavorites(@RequestBody Movie movie) {
         try {

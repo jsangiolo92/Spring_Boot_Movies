@@ -20,22 +20,22 @@ public class MovieService {
         return movieRepo.findAll();
     }
 
-    public void addMovie(String fullMovie) {
-        ObjectMapper mapper = new ObjectMapper();
+    public void addMovie(Movie newMovie) throws Exception {
+//        ObjectMapper mapper = new ObjectMapper();
         try {
-            JsonNode root = mapper.readTree(fullMovie);
-
-            long id = root.get("id").asLong();
-            String title = root.get("title").asText();
-            String releaseDate = root.get("release_date").asText();
-            double voteAverage = root.get("vote_average").asDouble();
-            String posterPath = root.get("poster_path").asText();
-            String overview = root.get("overview").asText();
-
-            Movie newMovie = new Movie(id, title, releaseDate, voteAverage, posterPath, overview);
+//            JsonNode root = mapper.readTree(fullMovie);
+//
+//            long id = root.get("id").asLong();
+//            String title = root.get("title").asText();
+//            String releaseDate = root.get("release_date").asText();
+//            double voteAverage = root.get("vote_average").asDouble();
+//            String posterPath = root.get("poster_path").asText();
+//            String overview = root.get("overview").asText();
+//
+//            Movie newMovie = new Movie(id, title, releaseDate, voteAverage, posterPath, overview);
             movieRepo.save(newMovie);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw e;
         }
     }
 
